@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <body>
+            <title>Ridge Clubs</title>
+            <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.blue-light_blue.min.css"/>
+            <link rel="stylesheet" type="text/css" href="main.css"/>
+            <link rel="stylesheet" type="text/css" href="foundation.min.css"/>
+            <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"/>
+            <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js" defer></script>
+        </head>
+
+    <img class="hero-blur" src="hill.JPG" alt="Background"/>
+    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Modal%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+    <div id="myModal" class="large reveal" data-reveal data-show-delay="400">
+        <div id="myModal-img"></div>
+        <h2><b id="club-name"></b></h2>
+        <div id="myModal-text">
+            <h3 id="club-time"></h3>
+            <h4 id="club-teach"></h4><br/>
+            <p id="club-info"></p>
+        </div>
+    </div>
+    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Navbar%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+    <div class="mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header mdl-shadow--4dp">
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                <a href="#fixed-tab-1" class="mdl-layout__tab is-active mdl-layout__header-row">Ridge Clubs</a>
+                <div class="mdl-layout-spacer"></div>
+                <a href="#fixed-tab-2" class="mdl-layout__tab">Clubs</a>
+                <a href="#fixed-tab-3" class="mdl-layout__tab">Calendar</a>
+                <a href="#fixed-tab-5" class="mdl-layout__tab">Add your club</a>
+            </div>
+        </header>
+        <main class="mdl-layout__content">
+            <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Home%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+            <section class="mdl-layout__tab-panel is-active page-content" id="fixed-tab-1" align="center">
+                <div class="hero" align="center">
+                    <img src="hill.JPG" alt="Background"/>
+                    <br/>
+                    <h1>Ridge Clubs</h1>
+                    <h2><b>Iroquois Ridge High School</b></h2>
+                    <div class="row mdl-shadow--8dp">
+                        <div class="small-6 columns"><h3 href="#fixed-tab-2">CLUBS</h3></div>
+                        <div class="small-6 columns"><h3 href="#fixed-tab-3">CALENDAR</h3></div>
+                    </div>
+                </div>
+            </section>
+            <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Clubs%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+            <section class="mdl-layout__tab-panel page-content" id="fixed-tab-2">
+                <div class="page-content mdl-grid" id="clubs">
+                </div>
+            </section>
+            <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Calendar%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+            <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+                <div class="page-content">
+                    <iframe style="height:100vh" src="https://drive.google.com/file/d/0B0vWTVsO8FTEbFEtbTByVVpvU0E/preview"></iframe>
+                </div>
+            </section>
+
+            <section class="mdl-layout__tab-panel" id="fixed-tab-5">
+                <div class="page-content">
+                    <div class="mdl-card__big mdl-card mdl-shadow--4dp">
+                        <a href="http://goo.gl/forms/IkP2zdL2b7" target="_blank">Propose a school event from your club</a><br/>
+                        <a href="https://goo.gl/forms/3kjaJIE4SZ7P3VBF3" target="_blank">Add your club to Ridge Clubs</a>
+                        <br/>
+                        <hr/>
+                        <h3><b>About Ridge Council</b></h3>
+                        <h4>Meetings in room 223 at the start of lunch every other Wednesday in the staff room.</h4>
+                        <p>The purpose of Ridge Council is to propose school events, allow clubs to communicate with each other, and encourage collaboration between clubs at Iroquois.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+     </div>
+
+</body>
+<script src="foundation.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(window).resize(function(){
+            $('header').show();
+        });
+
+        $.get('data.tsv', function(data) {
+            var clubs = String(data).split("\n");
+            clubs.splice(0, 1);
+            for (i in clubs) {
+                var club = String(clubs[i]).split("\t");
+                club.splice(0, 1);
+                clubBox = '<div class="mdl-cell mdl-cell--3-col"><div class="mdl-card-square mdl-card mdl-shadow--4dp"><div class="mdl-card__hover mdl-button mdl-js-button mdl-js-ripple-effect" data-open="myModal" onClick="infoCard(' + club[0] + ', ' + club[1] + ' in ' + club[3] + ' at ' + club[2] + ', ' + club[4] + ', ' + club[8] + ', this)"> <p>' + club[6] + '</p> </div> <div class="mdl-card__media mdl-card--expand" style="background-image: url(' + club[7] + ')"></div><div class="mdl-card__title"><h2 class="mdl-card__title-text">' + club[0] + '</h2></div> </div> </div>';
+                $('#clubs').append(clubBox);
+            }
+        });
+        $('.mdl-layout__tab-bar a, .hero h3').click(function(){
+            var active = $(this).attr('href');
+            $('.mdl-layout__tab-bar a').removeClass('is-active');
+            $('.mdl-layout__tab-bar a[href*="' + active + '"]').addClass('is-active');
+            $('.mdl-layout__tab-panel').hide();
+            $(active).fadeIn();
+        });
+    });
+    $(document).foundation();
+</script>
+</body>
+</html>
+

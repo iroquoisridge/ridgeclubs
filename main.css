@@ -1,0 +1,143 @@
+.hero .row,
+.hero img,
+.hero-blur,
+.mdl-card__hover {
+    position: absolute;
+    width: 100%
+}
+.mdl-card__hover p,
+.mdl-layout__tab-bar-button,
+.mdl-layout__tab-panel:not(.is-active) {
+    display: none
+}
+.mdl-card-square.mdl-card {
+    height: 300px;
+    width: 100%
+}
+.mdl-layout__header {
+    padding: 5px;
+    background-color: rgba(255, 255, 255, .5)
+}
+.mdl-layout__header-row {
+    font-size: 20px
+}
+.mdl-layout__tab,
+.mdl-layout__tab-bar {
+    font-size:20px;
+    -webkit-transition: .2s;
+    color: #222;
+    background-color: transparent;
+}
+.mdl-layout.is-upgraded .mdl-layout__tab.is-active,
+.mdl-layout__tab:hover {
+    color: #03A9F4
+}
+.mdl-card__media {
+    background-color: #fff;
+    background-size: cover
+}
+.hero img,
+.hero-blur {
+    opacity: .7;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    height: 100%
+}
+.hero img {
+    -webkit-filter: saturate(2)
+}
+.hero-blur {
+    -webkit-filter: blur(5px)
+}
+.hero h1 {
+    font-size: 130px;
+    font-family: lobster;
+    z-index: 100;
+    Arial, serif;
+    text-shadow: 3px 3px 0 #03A9F4
+}
+.mdl-layout__content {
+    z-index: auto;
+}
+.hero h2,
+.hero h3 {
+    text-shadow: 1px 1px 0 #03A9F4
+}
+.hero h2 {
+    font-size: 30px
+}
+.hero .row {
+    bottom: 70px;
+    max-width: none;
+    background-color: rgba(144, 202, 249, .5)
+}
+.hero h3 {
+    -webkit-transition: .2s;
+    font-weight: 700;
+    font-size: 40px;
+    padding: 30px 0;
+    margin: 0
+}
+.hero h3:hover {
+    cursor: pointer;
+    color: #fff;
+    text-shadow: 0 0 4px #000
+}
+#myModal {
+    padding: 0;
+    margin-bottom: 50px
+}
+#myModal-img {
+    height: 20vw;
+    background-position: center;
+    background-size: cover
+}
+#myModal-text {
+    padding: 30px 50px
+}
+#myModal-text p {
+    font-size: 20px
+}
+#myModal h2 {
+    font-size: 60px;
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+    background-color: #bbdefb
+}
+.mdl-card__hover {
+    -webkit-transition: .5s;
+    z-index: 1;
+    opacity: 0;
+    height: 300px;
+    background: url(ic_info_outline_48px.svg) top no-repeat;
+    background-size: 230px
+}
+.mdl-card__hover:hover {
+    opacity: .5;
+    background-color: rgba(187, 222, 251, .8)
+}
+.mdl-card-event {
+    background-color: #fff
+}
+.mdl-card-event h5 {
+    font-size: 25px
+}
+.mdl-card-event h5 span,
+.mdl-card__big p {
+    font-size: 20px
+}
+.mdl-card__big {
+    margin: 50px;
+    width: calc(100% - 100px);
+    padding: 50px
+}
+.mdl-card__big a {
+    -webkit-transition: .2s;
+    color: #2196F3;
+    font-size: 30px
+}
+.mdl-card__big a:hover {
+    color: #0D47A1
+}
