@@ -111,7 +111,7 @@
     z-index: 1;
     opacity: 0;
     height: 300px;
-    background: url(ic_info_outline_48px.svg) top no-repeat;
+    background: url("info.SVG") top no-repeat;
     background-size: 230px
 }
 .mdl-card__hover:hover {
